@@ -23,8 +23,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <string.h>
 #include "usbd_cdc_if.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,6 +62,9 @@ void SystemClock_Config(void);
  **********************************************/
 void My_USB_DataReceived_Handler(uint8_t *data, uint32_t length) {
 	// Exemple : Afficher les données reçues ou les renvoyer
+	if(APP_RX_DATA_SIZE > length + 2){
+		strcat((char*)data, "\n\r");
+	}
 	CDC_Transmit_FS(data, length);
 }
 /* USER CODE END 0 */
@@ -97,7 +100,7 @@ int main(void) {
 	MX_USB_DEVICE_Init();
 	/* USER CODE BEGIN 2 */
 	// Enregistrer le callback pour traiter les données reçues
-	Register_USB_DataReceived_Callback(My_USB_DataReceived_Handler);
+	USB_Register_DataReceived_Callback(My_USB_DataReceived_Handler);
 	/* USER CODE END 2 */
 
 	/* Infinite loop */
