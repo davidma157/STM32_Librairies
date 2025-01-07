@@ -2,6 +2,8 @@
 
 ## Références
 
+https://www.st.com/content/ccc/resource/training/technical/product_training/group0/bc/12/39/7d/14/5a/42/67/STM32H7-Peripheral-USB_On-The-Go_Full_and_High_Speed_interface_OTG_FS_HS/files/STM32H7-Peripheral-USB_On-The-Go_Full_and_High_Speed_interface_OTG_FS_HS.pdf/_jcr_content/translations/en.STM32H7-Peripheral-USB_On-The-Go_Full_and_High_Speed_interface_OTG_FS_HS.pdf
+
 https://controllerstech.com/send-and-receive-data-to-pc-without-uart-stm32-usb-com/
 
 
@@ -95,3 +97,6 @@ int main(void) {
 }
 ```
 
+## Ajuster heap size
+
+Dans le fichier .ioc ajuster **Minimum heap size** : **0x600**.
